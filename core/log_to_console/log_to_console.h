@@ -14,6 +14,8 @@ namespace console
         void setLogLevel(uint8_t level);
         // Log functions
         template<typename T>
+        void Log(const std::string &level, const T &msg);
+        template<typename T>
         void error(const T &msg, const uint16_t code = 0);
         template<typename T>
         void warn(const T &msg);

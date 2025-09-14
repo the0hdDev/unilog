@@ -1,6 +1,8 @@
 #pragma once
+#include <string>
 
-namespace config
+
+namespace core
 {
     enum LogLevel
     {
@@ -10,5 +12,13 @@ namespace config
         ERROR = 3,
         DEBUG = 4,
         TRACE = 5
+    };
+
+    std::string getCurrentTime()
+    {
+        std::string currentDateTime{};
+        currentDateTime = std::to_string(std::chrono::system_clock::now());
+
+        return currentDateTime;
     };
 }
