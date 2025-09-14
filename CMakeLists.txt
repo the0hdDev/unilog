@@ -13,4 +13,4 @@ add_library(unilog SHARED
         core/essentials.h
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
+include_directories(${CMAKE_SOURCE_DIR}/unilog)

@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
-
+#include <chrono>
+#include <iomanip>
+#include <iostream>
 
 namespace core
 {
@@ -14,11 +16,22 @@ namespace core
         TRACE = 5
     };
 
-    std::string getCurrentTime()
-    {
-        std::string currentDateTime{};
-        currentDateTime = std::to_string(std::chrono::system_clock::now());
+    static const std::string RED;
+    static const std::string GREEN;
+    static const std::string YELLOW;
+    static const std::string BLUE;
+    static const std::string BOLD;
+    static const std::string UNDERLINE;
+    static const std::string BG_CYAN;
+    static const std::string WHITE;
+    static const std::string RESET;
 
-        return currentDateTime;
-    };
+    std::string currentDateTime() {
+        auto now = std::chrono::system_clock::now();
+        std::time_t now_time = std::chrono::system_clock::to_time_t(now);
+
+        std::stringstream ss;
+        ss << std::put_time(std::localtime(&now_time), "%Y-%m-%d %H:%M:%S");
+        return ss.str();
+    }
 }
